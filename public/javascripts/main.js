@@ -8,8 +8,17 @@
 		return;
 	}
 
+	var el	= document.querySelector('pre.console'),
+		log = function(msg, e) {
+			console.log(msg, e);
+			el.textContent += msg + ':\n' + JSON.stringify(e, null, '\t') +'\n\n';
+		}
+
+
+
+
 	source.onopen =  function(e) {
-		console.log('SSE : Connection Opened', e);
+		log('SSE : Connection Opened', e);
 	};
 
 	source.onmessage = function(e) {
@@ -21,13 +30,13 @@
 			data = e.data;
 		}
 
-		console.log('SSE : Message Received', data);
+		log('SSE : Message Received', data);
 	};
 
 	source.onerror = function(e) {
-		console.log('SSE : Connection Error', e);
+		log('SSE : Connection Error', e);
 		if (e.readyState === EventSource.CLOSED) {
-			console.log('SSE : Connection Closed');
+			log('SSE : Connection Closed');
 		}
 	};
 
@@ -41,7 +50,7 @@
 			data = e.data;
 		}
 
-		console.log('SSE : PING Received', data);
+		log('SSE : PING Received', data);
 	});
 
 }());
