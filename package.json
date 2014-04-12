@@ -1,11 +1,22 @@
 {
-  "name": "application-name",
+  "name": "server-sent-events",
   "version": "0.0.1",
-  "private": true,
+  "main": "utils/SSE.js",
   "scripts": {
     "start": "node app.js"
   },
-  "dependencies": {
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jbottigliero/server-sent-events.git"
+  },
+  "keywords": [
+    "SSE",
+    "Server-Sent Events"
+  ],
+  "author" : {
+    "name": "Joe Bottigliero"
+  },
+  "devDependencies": {
     "express": "3.4.8",
     "jade": "*"
   }
