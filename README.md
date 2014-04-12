@@ -12,6 +12,7 @@ submitting custom events.
 ```
 	var SSE = require('server-sent-events');
 
+	// the route handler method (Express route)
 	var routeHandler = function(request, response) {
 		
 		var sse = new SSE({
